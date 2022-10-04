@@ -2,6 +2,7 @@
 use App\Http\Controllers\UserProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 /*
@@ -31,12 +32,16 @@ Route::get('/dashboard', function () {
 
 
 
+
+
+//these routes should only be accessed if the Auth::user() == user. The check should be done by some middleware
 Route::resource('projects', UserProjectController::class)
 
-    ->only(['index', 'store', 'create'])
+    ->only(['index', 'store', 'create', 'show'])
 
     ->middleware(['auth', 'verified']);
 
+//helper route 
 
 
 require __DIR__.'/auth.php';

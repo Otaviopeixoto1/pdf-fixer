@@ -6,9 +6,11 @@
     import { useDropzone } from "vue3-dropzone";
     import { useForm, Head } from '@inertiajs/inertia-vue3';
     import axios from "axios";
+    
+    const url ="/projects" ;
 
-    const url = "/projects" ;
-    const fields = reactive({ projectTitle: 'Untitled_Project' });
+    
+    const fields = reactive({ projectTitle: 'Untitled Project' });
 
 
     const formData = new FormData();
@@ -26,7 +28,7 @@
 
     const saveFields = (fData) => {
 
-        fData.append("Title" , fields.projectTitle);
+        fData.append("name" , fields.projectTitle);
     
     };
 
@@ -70,7 +72,7 @@
 
     function onSubmit() {
         saveFields(formData);
-        //console.log(formData.get("Title"));
+        //console.log(formData.get("name"));
         sendForm(formData); // do something in case of failure
         clearForm(formData);
 
@@ -88,9 +90,11 @@
      
         <AuthenticatedLayout>
             <div class=" mx-auto py-4 px-40 lg:py-8 lg:px-80">
-                <div>
-                    Title:
-                    <input type="text" v-model.lazy="fields.projectTitle" />
+                <div class="pb-4">
+                    <font size="+1">
+                        Title: 
+                    </font>
+                    <input type="text" v-model.lazy="fields.projectTitle" @focus="$event.target.select()" />
 
                 </div>
 

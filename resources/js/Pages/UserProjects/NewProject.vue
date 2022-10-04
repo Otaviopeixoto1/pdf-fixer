@@ -90,11 +90,12 @@
      
         <AuthenticatedLayout>
             <div class=" mx-auto py-4 px-40 lg:py-8 lg:px-80">
-                <div class="pb-4">
+                <div class="pb-6">
                     <font size="+1">
                         Title: 
                     </font>
-                    <input type="text" v-model.lazy="fields.projectTitle" @focus="$event.target.select()" />
+                    <input class ="ml-2 border-slate-400 rounded-md" type="text" v-model.lazy="fields.projectTitle" 
+                    @focus="$event.target.select()" />
 
                 </div>
 

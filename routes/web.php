@@ -33,15 +33,14 @@ Route::get('/dashboard', function () {
 
 
 
-
+//PROTECT THESE ROUTES:
 //these routes should only be accessed if the Auth::user() == user. The check should be done by some middleware
 Route::resource('projects', UserProjectController::class)
 
     ->only(['index', 'store', 'create', 'show'])
 
     ->middleware(['auth', 'verified']);
-
-//helper route 
+ 
 
 
 require __DIR__.'/auth.php';

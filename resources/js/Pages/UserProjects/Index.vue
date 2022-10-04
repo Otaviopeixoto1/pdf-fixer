@@ -22,13 +22,17 @@
                     <PrimaryButton class="mt-4" >New Project</PrimaryButton>
                 </a>
                 
-                <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
-                    <UserProject
-                        v-for="project in projects"
-                        :key="project.id"
-                        :project="project"
-                    />
-                </div>
+                
             </div>
+
+            <div class="mx-40 bg-white shadow-md rounded-lg divide-y">
+                <UserProject
+                    v-for="project in projects"
+                    :key="project.id"
+                    :project="project"
+                />
+             </div>
+
+
         </AuthenticatedLayout>
     </template>
